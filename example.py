@@ -2,10 +2,10 @@ import helix as hlx
 import numpy as np
 
 def fitness(dna):
-	return abs(52 - ((dna[0] * dna[1]) * 100)) / 100
+	return abs(42 - ((dna[0] * dna[1]) * 100)) / 100
 
-darwin = hlx.Genetic(2, 5, children = False, mutation = True)
-for gen in range(10):
+darwin = hlx.Genetic(2, 10, children = False, mutation = True)
+for gen in range(20):
 	print(f"Generation:{gen}")
 	for individual in darwin.population:
 		darwin.fitness[np.where(darwin.population == individual)] = fitness(individual.dna)	
