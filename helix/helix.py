@@ -51,6 +51,7 @@ class Individual:
 		if np.random.random() < mr:
 			for i in range(len(self.dna)):
 				self.dna[i] *= ((np.random.uniform(-1,1) * mf) + 1)
+				self.dna[i] = np.tanh(self.dna[i])
 
 	def set_dna(self, toSet):
 		self.dna = toSet
