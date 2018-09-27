@@ -2,7 +2,7 @@
 from setuptools import setup
 
 setup(name='helix',
-	version='0.1',
+	version='0.1.1',
 	description='Genetic Algorithm Framework',
 	author='Niket Patel',
 	author_email='x@example.com',
