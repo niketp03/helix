@@ -47,7 +47,10 @@ class Genetic:
 			print(f"Worst individual fitness score:{self.fitness[self.individual_count - 1]}")
 
 		print("Evolution Complete!")
-		print(f"Here is the best individual:{self.population[0].dna[0] * 10} * {self.population[0].dna[1] * 10}")
+		print("Here is the best individual:")
+		for x in self.population[0].dna:
+			print(x, end =" ")
+		print("")
 		print(f"it has a fitness score of {self.fitness[0]}")
 		print("++++++++++++++++++++++++++++++++++++++++++++++++")
 
@@ -70,9 +73,3 @@ class Individual:
 
 	def set_dna(self, toSet):
 		self.dna = toSet
-
-def fitness(dna):
-	return abs(42 - ((dna[0] * dna[1]) * 100)) / 100
-
-darwin = Genetic(2, 10, children = True, mutation = True)
-darwin.evolve(fitness, 200)
