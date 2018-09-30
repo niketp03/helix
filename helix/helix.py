@@ -3,7 +3,7 @@ import numpy as np
 class Genetic:
 
 	def __init__(self, individual_size, individual_count,
-		mutation = True, mutation_rate = 0.01, mutation_factor = 0.01, children = True, child_mutant_factor = 0.1, immigrants = 1):
+		mutation = True, mutation_rate = 0.01, mutation_factor = 0.01, children = True, child_mutant_factor = 0.1, immigrant_factor = 0):
 		self.individual_size = individual_size
 		self.individual_count =individual_count
 		self.mutation = mutation
@@ -11,7 +11,7 @@ class Genetic:
 		self.mutation_factor = mutation_factor
 		self.children = children
 		self.child_mutant_factor = child_mutant_factor
-		self.immigrants = immigrants
+		self.immigrant_factor = immigrant_factor
 		self.population = np.empty((individual_count,), dtype=object)
 		for i in range(individual_count):	
 			self.population[i-1] = Individual(individual_size)
@@ -28,6 +28,9 @@ class Genetic:
 					self.population[i] = Individual(self.individual_size)
 					self.population[i].set_dna(self.population[index].dna)
 					self.population[i].mutate(1, self.child_mutant_factor)
+					if np.random.random() < self.immigrant_factor:
+						self.population[i] = Individual(self.individual_size)
+
 
 		else:
 			for i in toKill:
