@@ -45,5 +45,5 @@ def fitness(dna):
 	return val_loss
 
 
-darwin = hlx.Genetic(4, 20, children = True, mutation = True, immigrant_factor=0.1)
+darwin = hlx.Genetic(4, 20, children = True, mutation = False, immigrant_factor=0.7)
 darwin.evolve(fitness, 20)
