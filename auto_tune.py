@@ -40,9 +40,9 @@ def fitness(dna):
 	              metrics=['accuracy'])
 	model.fit(x_test, y_test, epochs=1)
 	val_loss, val_acc = model.evaluate(x_train, y_train)
-	print(val_loss)
-	print(val_acc)
-	return val_loss
+	print(f"validation loss:{val_loss}")
+	print(f"validation accuracy{val_acc}")
+	return 1-val_acc
 
 
 darwin = hlx.Genetic(4, 20, children = True, mutation = False, immigrant_factor=0.7)
